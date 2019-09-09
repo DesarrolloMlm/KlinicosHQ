@@ -1,0 +1,44 @@
+﻿.body-content {
+    background-color: #074a81;
+}
+.body {
+    background-color: #074a81;
+}
+
+.navbar-inverse {
+    background-color: #003253;
+    border-color:white;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+
+.establecimiento-bg {
+    background-image: url(../Images/background.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: cover;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-style: solid;
+    border-color: white;
+    margin-top: 50px;
+}
+
+.col-md-2 .control-label {
+    color: white;
+}
+
+.jumbotron {
+    background-color: #074a81;
+}
+
+.jumbotron h1{
+    color:white;
+}
+
+footer p{
+    color:white;
+}

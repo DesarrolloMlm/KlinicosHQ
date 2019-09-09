@@ -4,8 +4,10 @@
     ViewBag.Title = "Panel";
 }
 
-<div id="establecimiento-bg" class="container">
-    <section>
+@Styles.Render("~/CSS/PanelEstilo.css")
+
+<div class="container">
+    <section class="establecimiento-bg">
         @*<div class="ibox-content">*@
 
 
@@ -19,37 +21,37 @@
         <article>
             <div class="row">
                 <div class="col-md-2"><label class="control-label" for="MedicosActivos">1000 Medicos Activos</label></div>
-                <div class="col-md-4"></div>
+                <div class="col-md-1"></div>
                 <div class="col-md-2"><label class="control-label" for="MedicosInactivos">500 Medicos Inactivos</label></div>
-                <div class="col-md-4"></div>
+                <div class="col-md-3"></div>
 
             </div>
-            <div class="row">
+            <div class="row margin-top-15">
                 <div class="col-md-2"><label class="control-label" for="Atenciones">Total Atenciones</label></div>
                 <div class="col-md-1"></div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="date" id="AtencionesDesde"
                            class="form-control"
                            value="2019-08-26"
                            min="2019-08-26" max="2019-09-01">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="date" id="AtencionesHasta"
                            class="form-control"
                            value="2019-08-26"
                            min="2019-08-26" max="2019-09-01">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2"><label for="Practicas">Total Practicas</label></div>
+            <div class="row margin-top-15">
+                <div class="col-md-2"><label class="control-label" for="Practicas">Total Practicas</label></div>
                 <div class="col-md-1"></div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="date" id="PracticasDesde"
                            class="form-control"
                            value="2019-08-26"
                            min="2019-08-26" max="2019-09-01">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="date" id="PracticasHasta"
                            class="form-control"
                            value="2019-08-26"
@@ -59,47 +61,44 @@
         </article>
 
         <article>
-            <div class="row">
+            <div class="row margin-top-15">
                 <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Problemas de Salud"> </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="row">
+            <div class="row margin-top-15">
                 <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Top medicos 'consulta'"> </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="row">
+            <div class="row margin-top-15">
                 <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Listado de Practicas"> </div>
                 <div class="col-md-1"></div>
             </div>
-            <div class="row">
+            <div class="row margin-top-15">
                 <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Buscar Paciente"></div>
                 <div class="col-md-1">  </div>
-                <div class="col-md-3"><input type="text" class="form-control" style="width:100%" id="Establecimiento"></div>
+                <div class="col-md-2"><input type="text" class="form-control" style="width:100%" id="Establecimiento"></div>
 
             </div>
 
-            <div class="row">
+            <div class="row margin-top-15">
                 <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Listado de Medicos"></div>
                 <div class="col-md-1"></div>
             </div>
 
-            <div class="row">
+            <div class="row margin-top-15">
                 <div class="col-md-2">
-                    <select class="selectpicker" style="width:100%">
-                        <option value="">Elige una opcion</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="opel">Opel</option>
-                        <option value="audi">Audi</option>
-                    </select>
+                    <div style="text-align:center">
+                        <select class="form-control" style="width:100%">
+                            <option value="">Elige una opcion</option>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="col-md-1"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <input type="button" class="btn btn-default" style="width:100%" value="Acceder">
-                </div>
-                <div class="col-md-1"></div>
+                <div class="col-md-2"><input type="button" class="btn btn-default" style="width:100%" value="Acceder"></div>
             </div>
 
 
