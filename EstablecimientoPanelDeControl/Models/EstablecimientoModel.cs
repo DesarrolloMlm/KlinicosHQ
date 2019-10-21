@@ -29,7 +29,7 @@ namespace EstablecimientoPanelDeControl.Models
         //[NotMapped]
         public string nombreSector { get { return this.sectores.Select(x => x.nombre).Aggregate((x, y) => string.Format("{0}, {1}", x, y)); } }
 
-        public virtual List<Sector> sectores { get; set; }
+        public virtual List<SectorModel> sectores { get; set; }
 
         internal void Mokear()
         {

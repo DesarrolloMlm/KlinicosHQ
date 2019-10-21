@@ -1,4 +1,4 @@
-﻿@model EstablecimientoPanelDeControl.Models.EstablecimientoModel
+﻿@model EstablecimientoPanelDeControl.ViewModels.PanelViewModel
 
 @{
     ViewBag.Title = "Panel";
@@ -6,104 +6,255 @@
 
 @Styles.Render("~/CSS/PanelEstilo.css")
 
-<div class="container">
-    <section class="establecimiento-bg">
-        @*<div class="ibox-content">*@
+@using (Html.BeginForm("Panel", "Establecimiento", FormMethod.Post))
+{
+    <div class="container">
+        <section class="establecimiento-bg">
+            @*<div class="ibox-content">*@
 
 
-        <article>
-            <div class="row">
-                <div class="jumbotron" style="text-align: center">
-                    <h1>Nombre Establecimiento</h1>
-                </div>
-            </div>
-        </article>
-        <article>
-            <div class="row">
-                <div class="col-md-2"><label class="control-label" for="MedicosActivos">1000 Medicos Activos</label></div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2"><label class="control-label" for="MedicosInactivos">500 Medicos Inactivos</label></div>
-                <div class="col-md-3"></div>
-
-            </div>
-            <div class="row margin-top-15">
-                <div class="col-md-2"><label class="control-label" for="Atenciones">Total Atenciones</label></div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                    <input type="date" id="AtencionesDesde"
-                           class="form-control"
-                           value="2019-08-26"
-                           min="2019-08-26" max="2019-09-01">
-                </div>
-                <div class="col-md-2">
-                    <input type="date" id="AtencionesHasta"
-                           class="form-control"
-                           value="2019-08-26"
-                           min="2019-08-26" max="2019-09-01">
-                </div>
-            </div>
-            <div class="row margin-top-15">
-                <div class="col-md-2"><label class="control-label" for="Practicas">Total Practicas</label></div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                    <input type="date" id="PracticasDesde"
-                           class="form-control"
-                           value="2019-08-26"
-                           min="2019-08-26" max="2019-09-01">
-                </div>
-                <div class="col-md-2">
-                    <input type="date" id="PracticasHasta"
-                           class="form-control"
-                           value="2019-08-26"
-                           min="2019-08-26" max="2019-09-01">
-                </div>
-            </div>
-        </article>
-
-        <article>
-            <div class="row margin-top-15">
-                <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Problemas de Salud"> </div>
-                <div class="col-md-1"></div>
-            </div>
-            <div class="row margin-top-15">
-                <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Top medicos 'consulta'"> </div>
-                <div class="col-md-1"></div>
-            </div>
-            <div class="row margin-top-15">
-                <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Listado de Practicas"> </div>
-                <div class="col-md-1"></div>
-            </div>
-            <div class="row margin-top-15">
-                <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Buscar Paciente"></div>
-                <div class="col-md-1">  </div>
-                <div class="col-md-2"><input type="text" class="form-control" style="width:100%" id="Establecimiento"></div>
-
-            </div>
-
-            <div class="row margin-top-15">
-                <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Listado de Medicos"></div>
-                <div class="col-md-1"></div>
-            </div>
-
-            <div class="row margin-top-15">
-                <div class="col-md-2">
-                    <div style="text-align:center">
-                        <select class="form-control" style="width:100%">
-                            <option value="">Elige una opcion</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>
-                        </select>
+            <article>
+                <div class="row">
+                    <div class="jumbotron" style="text-align: center">
+                        <h1>@Model.establecimientoNombre</h1>
                     </div>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-2"><input type="button" class="btn btn-default" style="width:100%" value="Acceder"></div>
-            </div>
+            </article>
+            <article>
+                <div class="row">
+                    <div class="col-md-2"><label class="control-label" for="MedicosActivos">@Model.profesionalesActivos Medicos Activos</label></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2"><label class="control-label" for="MedicosInactivos">@Model.profesionalesInactivos Medicos Inactivos</label></div>
+                    <div class="col-md-3"></div>
+                </div>
+                <div class="row margin-top-15">
+                    <div class="col-md-2"><label class="control-label" id="Evoluciones">@Model.evolucionesTotales Evoluciones</label></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <input type="date" id="EvolucionesDesde"
+                               class="form-control"
+                               value="2019-08-26"
+                               min="2018-01-01" max="2025-01-01">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" id="EvolucionesHasta"
+                               class="form-control"
+                               value="2019-08-26"
+                               min="2018-01-01" max="2025-01-01">
+                    </div>
+                </div>
+                <div class="row margin-top-15">
+                    <div class="col-md-2"><label class="control-label" id="Practicas">@Model.practicasTotales Practicas</label></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <input type="date" id="PracticasDesde"
+                               class="form-control"
+                               value="2019-08-26"
+                               min="2018-01-01" max="2025-01-01">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" id="PracticasHasta"
+                               class="form-control"
+                               value="2019-08-26"
+                               min="2018-01-01" max="2025-01-01">
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <div class="row margin-top-15">
+                    <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Problemas de Salud"> </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row margin-top-15">
+                    <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Top medicos 'consulta'"> </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="row margin-top-15">
+                    <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Listado de Practicas"> </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2"> <label class="control-label" for="Sector">Dni</label> </div>
+                </div>
+                <div class="row margin-top-15">
+                    <div class="col-md-2">
+                        <a id="buscarPacienteButton" class="btn btn-default btn-block" onclick="miBuscarPacienteValue()" value="buscarPaciente">Buscar Paciente</a>
+                    </div>
+                    <div class="col-md-1">  </div>
+                    <div class="col-md-2"><input id="buscarPacienteText" type="text" class="form-control" style="width:100%"></div>
+
+                </div>
+
+                <div class="row margin-top-15">
+                    <div class="col-md-2"> <input type="button" class="btn btn-default" style="width:100%" value="Listado de Medicos"></div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="row margin-top-15">
+                    <div class="col-md-2"> <label class="control-label" for="Sector">Sector</label> </div>
+                </div>
+
+                <div class="row margin-top-15">
+                    <div class="col-md-2">
+                        <div style="text-align:center">
+                            <select id="sectorSelect" onchange="miSectorSelectValue()" class="form-control" style="width:100%">
+                                <option value="0">Elige una opcion</option>
+                                @for (int i = 0; i < Model.sectoresListado.Count(); i++)
+                                {
+                                    <option value="@Model.sectoresListado[i].id">@Model.sectoresListado[i].nombre</option>
+                                }
+                                @*<option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="audi">Audi</option>*@
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        <a id="sectorButton" class="btn btn-default btn-block" value="sectorButton">Acceder</a>
+                    </div>
+                </div>
+
+            </article>
+
+        </section>
+    </div>
+}
+
+<script>
+
+        $(document).ready(function () {
+
+        });
+
+        //Tiene el ID de la etiqueta #sectorSelect
+        var sector_select = document.getElementById('sectorSelect');
+
+        //Contendrá el valor de el select que se haya seleccionado
+        var sector_select_value;
+
+        //Tiene el ID de la etiqueta #sectorButton
+        var sector_button = document.getElementById('sectorButton');
+
+        //Tiene el ID de la etiqueta #buscarPacienteButton
+        var buscar_paciente_button = document.getElementById('buscarPacienteButton');
 
 
-        </article>
+        //Esta funcion nos devolverá a que Sector se le hizo click
+        function miSectorSelectValue() {
+            sector_select_value = sector_select.options[sector_select.selectedIndex].value;
+        }
 
-    </section>
-</div>
 
+        //Esto nos redirige al controlador y a su ActionResult      (se le pasa un parametro, idsector)
+        sector_button.onclick = function (e) {
+
+            var link = "/Establecimiento/AccederSector/" + "?idsector=" + sector_select_value;
+            alert(link);
+            //var sectorSeleccionado = document.getElementById("mirol").innerText;
+            sector_button.href = link;
+        };
+
+        //--------------------------------------------------------------------------------------------
+
+        $("#EvolucionesDesde").focusout(function () {
+            evolucionesFocusOut()
+        });
+
+        $("#EvolucionesHasta").focusout(function () {
+            evolucionesFocusOut()
+        });
+
+        $("#PracticasDesde").focusout(function () {
+            practicasFocusOut()
+        });
+
+        $("#PracticasHasta").focusout(function () {
+            practicasFocusOut()
+        });
+
+        function evolucionesFocusOut() {
+            var url = "@Url.Action("TotalEvolucionesRefresh","Establecimiento")";
+            var fechaDesdeEvoluciones = $("#EvolucionesDesde").val();
+            var fechaHastaEvoluciones = $("#EvolucionesHasta").val();
+
+            var data = { fechaDesdeEvolucioness: fechaDesdeEvoluciones, fechaHastaEvolucioness: fechaHastaEvoluciones }
+            var miData;
+
+            try {
+                if ($("#EvolucionesDesde").val() == "") throw "EvolucionesDesde Dato no Completado";
+                if ($("#EvolucionesHasta").val() == "") throw "EvolucionesHasta Dato no Completado";
+
+                $.post(url, data).done(function (data) {
+
+                    miData = data + " Evoluciones";
+                    $("#Evoluciones").html(miData);
+                }).fail(evolucionesManejoErroresAjax)
+                    .always(function () {
+                        //Esta funcion siempre se ejecuta
+                    });
+            }
+            catch (err) {
+                alert(err);
+            }
+
+            
+        }
+
+        //Siempre que haya un error en la fecha seleccionado o envie mal un parametro tirara error en la consola
+        function evolucionesManejoErroresAjax(err) {
+            //console.log("Error Ajax Evoluciones");
+            alert("Error Ajax Evoluciones");
+        }
+
+        //--------------------------------------------------------------------------------------------
+
+        function practicasFocusOut() {
+            var url = "@Url.Action("TotalPracticasRefresh","Establecimiento")";
+            var fechaDesdePracticas = $("#PracticasDesde").val();
+            var fechaHastaPracticas = $("#PracticasHasta").val();
+
+            var data = { fechaDesdePracticass: fechaDesdePracticas, fechaHastaPracticass: fechaHastaPracticas }
+            var miData;
+
+            try {
+                if ($("#PracticasDesde").val() == "") throw "PracticasDesde Dato no Completado";
+                if ($("#PracticasHasta").val() == "") throw "PracticasHasta Dato no Completado";
+
+                $.post(url, data)
+                    .done(function (data) {
+                        miData = data + " Practicas";
+                        $("#Practicas").html(miData);
+                    })
+                    .fail(practicasManejoErroresAjax)
+                    .always(function () {
+                        //Esta funcion siempre se ejecuta
+                    });
+            }
+            catch (err) {
+                alert(err);
+            }
+
+
+        }
+
+        //Siempre que haya un error en la fecha seleccionada o envie mal un parametro tirará error en la consola
+        function practicasManejoErroresAjax(err) {
+            //console.log("Error Ajax Practicas");
+            throw "Error Ajax Practicas";
+        }
+
+        //--------------------------------------------------------------------------------------------
+
+        //Este Boton nos manda a la Vista BuscarPaciente pasandole el dato Dni
+        buscar_paciente_button.onclick = function (e) {
+
+            var buscar_paciente_value = document.getElementById("buscarPacienteText").value
+
+            var link = "/Establecimiento/BuscarPaciente/" + "?dni=" + buscar_paciente_value;
+            alert(link);
+            //var sectorSeleccionado = document.getElementById("mirol").innerText;
+            buscar_paciente_button.href = link;
+        };
+
+</script>
