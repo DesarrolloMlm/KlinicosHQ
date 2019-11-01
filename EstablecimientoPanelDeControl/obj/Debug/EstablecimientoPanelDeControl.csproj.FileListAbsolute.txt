@@ -145,6 +145,7 @@ C:\Users\admin\Desktop\Establecimiento_PanelDeControl\EstablecimientoPanelDeCont
 C:\Users\admin\Desktop\Establecimiento_PanelDeControl\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\Establecimiento_PanelDeControl\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.dll
 C:\Users\admin\Desktop\Establecimiento_PanelDeControl\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.pdb
+C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\bin\ApplicationInsights.config
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\bin\EstablecimientoPanelDeControl.dll.config
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\bin\EstablecimientoPanelDeControl.dll
@@ -190,7 +191,6 @@ C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\Establec
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\bin\es\System.Web.WebPages.resources.dll
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.csprojResolveAssemblyReference.cache
-C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.dll
 C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.pdb
+C:\Users\admin\Desktop\A1-C#\###GitHubProyects###\KlinicosHQ\KlinicosHQ\EstablecimientoPanelDeControl\obj\Debug\EstablecimientoPanelDeControl.csprojResolveAssemblyReference.cache

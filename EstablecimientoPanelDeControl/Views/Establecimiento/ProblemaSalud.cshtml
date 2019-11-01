@@ -1,0 +1,80 @@
+﻿@model EstablecimientoPanelDeControl.ViewModels.ProblemaSaludViewModel
+
+@{
+    /**/
+
+    /**/
+
+    /**/
+
+    ViewBag.Title = "ProblemaSalud";
+}
+
+@Styles.Render("~/CSS/ProblemaSaludEstilo.css")
+
+@using (Html.BeginForm("ProblemaSalud", "Establecimiento", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <label class="control-label" for="PS1">Fecha Desde</label>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="PS2">Fecha Hasta</label>
+        </div>
+        <div class="col-md-3">
+            <label class="control-label" for="PS3">Cantidad</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <input type="date" id="FechaDesdePs" name="FechaDesdePs"
+                   class="form-control"
+                   value="2019-10-22"
+                   min="2018-01-01" max="2025-01-01">
+        </div>-->
+        <div class="col-md-3">
+            <input type="date" id="FechaHastaPs" name="FechaHastaPs"
+                   class="form-control"
+                   value="2019-10-22"
+                   min="2018-01-01" max="2025-01-01">
+        </div>
+
+        <div class="col-md-3">
+            <input type="text" name="CantidadPS" class="form-control" placeholder="Cantidad Problemas" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-2 col-md-offset-1">
+            <input type="submit" value="Filtrar" class="btn btn-default btn-success btn-block" />
+        </div>
+
+        <div class="col-md-4 col-md-offset-1"></div>
+    </div>
+
+    <div class="text-center">
+        <br />
+        <a style="text-align:center" class="btn btn-default btn-success" href="~/Establecimiento/Panel" title="Volver Atrás">Atrás</a>
+    </div>
+}
+
+@{Html.RenderAction("ControladorPartialView", "Establecimiento");}
+
+<script>
+    $(document).ready(function () {
+
+        var date = new Date();
+        var dateString = date.toISOString().split('T')[0]; // "2019-10-23"
+
+        $("#FechaHastaPs").val(dateString);
+
+        date.setDate(date.getDate() - 30);
+        dateString = date.toISOString().split('T')[0];
+
+        $("#FechaDesdePs").val(dateString);
+
+    });
+</script>

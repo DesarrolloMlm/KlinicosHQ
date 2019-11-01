@@ -147,19 +147,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Evoluciones.cs" />
-    <Compile Include="Models\EstablecimientoModel.cs" />
-    <Compile Include="Models\Practicas.cs" />
+    <Compile Include="Models\ProblemasSaludModel.cs" />
     <Compile Include="Models\SectorModel.cs" />
-    <Compile Include="Models\Medicos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\EstablecimientoRepositorio.cs" />
     <Compile Include="ViewModels\PanelViewModel.cs" />
+    <Compile Include="ViewModels\ProblemaSaludViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CSS\PanelEstilo.css" />
+    <Content Include="CSS\ProblemaSaludEstilo.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -197,6 +196,8 @@
     <Content Include="Views\Establecimiento\Panel.cshtml" />
     <Content Include="Views\Establecimiento\Paciente.cshtml" />
     <Content Include="Views\Establecimiento\Sector.cshtml" />
+    <Content Include="Views\Establecimiento\ProblemaSalud.cshtml" />
+    <Content Include="Views\Shared\_ProblemaSalud.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
