@@ -26,6 +26,22 @@ namespace EstablecimientoPanelDeControl
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // dataTables css styles
+            bundles.Add(new StyleBundle("~/Content/dataTables/dataTablesStyles").Include(
+                      "~/Content/DataTables/datatables.min.css",
+                      "~/Content/DataTables/fixedColumns.dataTables.min.css",
+                      "~/Content/DataTables/responsive.dataTables.min.css",
+                      "~/Content/DataTables/select.dataTables.min.css"));
+
+            // dataTables 
+            bundles.Add(new ScriptBundle("~/plugins/dataTables").Include(
+                      "~/Scripts/dataTables/datatables.min.js",
+                      "~/Scripts/dataTables/dataTables.fixedColumns.min.js",
+                      "~/Scripts/dataTables/dataTables.responsive.min.js",
+                      "~/Scripts/dataTables/dataTables.select.min.js"));
+
+
         }
     }
 }

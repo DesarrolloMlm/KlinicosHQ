@@ -104,6 +104,11 @@ namespace EstablecimientoPanelDeControl.Repositorio
             return (cantTotalEvoluciones);
         }
 
+        public void ObtenerSemanalAtenciones()
+        {
+            throw new NotImplementedException();
+        }
+
         public Int32 CantidadTotalPracticas(DateTime? fechaDesdePractica = null, DateTime? fechaHastaPractica = null)
         {
             Int32 cantTotalPracticas;
@@ -195,6 +200,54 @@ namespace EstablecimientoPanelDeControl.Repositorio
         {
             ProblemaSaludViewModel miVista = new ProblemaSaludViewModel(ListarProblemasSalud(fechaDesdeProblemas, fechaHastaProblemas, cantidad));
             return miVista;
+        }
+
+
+        public List<ProfesionalModel> obtenerProfesionales()
+        {
+            Connection();
+            SqlCommand com = new SqlCommand("SP_OBTENER_PROFESIONALES", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            List<ProfesionalModel> profesionales = new List<ProfesionalModel>();
+
+            try
+            {
+                con.Open();
+                da.Fill(dt);
+                con.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    profesionales.Add(CastearProfesional(dr));
+                }
+                return profesionales;
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+
+        }
+
+        private ProfesionalModel CastearProfesional(DataRow dr)
+        {
+            ProfesionalModel model = new ProfesionalModel();
+            model.id = Convert.ToInt32(dr["id"]);
+            model.idSexo = Convert.ToInt32(dr["idSexo"]);
+            model.idTipoDocumento = Convert.ToInt32(dr["idTipoDocumento"]);
+            model.matricula = dr["matricula"].ToString();
+            model.numeroDocumento = dr["numeroDocumento"].ToString();
+            model.otrosNombres = dr["otrosNombres"].ToString();
+            model.primerApellido = dr["primerApellido"].ToString();
+            model.primerNombre = dr["primerNombre"].ToString();
+            model.telefono = String.IsNullOrEmpty(dr["telefono"].ToString()) ? "" : dr["telefono"].ToString();
+            model.vigente = Convert.ToBoolean(dr["vigente"]);
+            return model;
         }
     }
 

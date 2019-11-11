@@ -146,6 +146,21 @@ namespace EstablecimientoPanelDeControl.Controllers
 
             return PartialView("_ProblemaSalud",lista);
         }
+
+
+
+        public ActionResult ListadoProfesionales()
+        {
+            EstablecimientoRepo.ObtenerSemanalAtenciones();
+            return RedirectToAction("Listado", "Profesional");
+        }
+
+        public ActionResult SemanalAtenciones()
+        {
+
+            return View();
+        }
+
     }
 }
 
