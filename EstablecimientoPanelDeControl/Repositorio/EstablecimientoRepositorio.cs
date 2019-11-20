@@ -196,6 +196,109 @@ namespace EstablecimientoPanelDeControl.Repositorio
             ProblemaSaludViewModel miVista = new ProblemaSaludViewModel(ListarProblemasSalud(fechaDesdeProblemas, fechaHastaProblemas, cantidad));
             return miVista;
         }
+
+
+        public List<ProfesionalViewModel> ObtenerProfesionalesVM()
+        {
+            List<ProfesionalViewModel> lista = new List<ProfesionalViewModel>();
+            Connection();
+            SqlCommand com = new SqlCommand("General.Obtener_Datos_Profesional", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                da.Fill(dt);
+                con.Close();
+
+                foreach (DataRow fila in dt.Rows)
+                {
+                    lista.Add(CastearProfesionalVM(fila));
+                }
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                throw ex; 
+            }
+            
+
+            
+
+
+        }
+
+        private ProfesionalViewModel CastearProfesionalVM(DataRow dr)
+        {
+            try
+            {
+
+
+
+                ProfesionalViewModel viewModel = new ProfesionalViewModel();
+                viewModel.Apellido = Convert.ToString(dr["primerApellido"]);
+                viewModel.Dni = Convert.ToInt32(dr["numeroDocumento"]);
+                viewModel.IdProfesional = Convert.ToInt32(dr["IdProfesional"]);
+                viewModel.Matricula = Convert.ToString(dr["matricula"]);
+                viewModel.Nombre = Convert.ToString(dr["nombre"]);
+                viewModel.SetEsepecialidades(ObtenerEspecialidadesProfesional(viewModel.IdProfesional));
+
+                return viewModel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        private List<Especialidad> ObtenerEspecialidadesProfesional(int idProfesional)
+        {
+            List<Especialidad> lista = new List<Especialidad>();
+            Connection();
+            SqlCommand com = new SqlCommand("General.Obtener_Especialidad_Profesional", con);
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            com.Parameters.AddWithValue("@idProfesional", idProfesional);
+            DataTable dt = new DataTable();
+            try
+            {
+                con.Open();
+                da.Fill(dt);
+                con.Close();
+
+                foreach (DataRow fila in dt.Rows)
+                {
+                    lista.Add(CastearEspecialidad(fila));
+                }
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                con.Close();
+                throw ex;
+            }
+        }
+
+        private Especialidad CastearEspecialidad(DataRow dr)
+        {
+            try
+            {
+                Especialidad especialidad = new Especialidad();
+                especialidad.Id = Convert.ToInt32(dr["idEspecialidad"]);
+                especialidad.Nombre = Convert.ToString(dr["nombre"]);
+                return especialidad;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 
     //Crear un Metodo del tipo ViewModelPanel aqui y que éste llame a estos distintos metodos para ir cargando los valores de los atributos.

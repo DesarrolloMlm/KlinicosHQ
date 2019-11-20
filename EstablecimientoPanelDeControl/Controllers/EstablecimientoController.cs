@@ -146,6 +146,17 @@ namespace EstablecimientoPanelDeControl.Controllers
 
             return PartialView("_ProblemaSalud",lista);
         }
+
+
+        public ActionResult ListaProfesionales()
+        {
+
+            List<ProfesionalViewModel> lstProfesionales = EstablecimientoRepo.ObtenerProfesionalesVM();
+
+
+            return View(lstProfesionales);
+        }
+
     }
 }
 

@@ -1,0 +1,28 @@
+﻿@model List< EstablecimientoPanelDeControl.ViewModels.ProfesionalViewModel>
+
+<table>
+    <thead>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Matricula</th>
+            <th>Especialidades</th>
+            <th>Acceder</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var profesional in Model)
+        {
+            <tr>
+                <td>@profesional.Dni </td>
+                <td>@profesional.Nombre</td>
+                <td>@profesional.Apellido</td>
+                <td>@profesional.Matricula</td>
+                <td>@profesional.GetEspecialidades()</td>
+                <td><a href="#">content</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
