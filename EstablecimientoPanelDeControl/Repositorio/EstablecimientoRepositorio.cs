@@ -235,15 +235,12 @@ namespace EstablecimientoPanelDeControl.Repositorio
         {
             try
             {
-
-
-
                 ProfesionalViewModel viewModel = new ProfesionalViewModel();
                 viewModel.Apellido = Convert.ToString(dr["primerApellido"]);
                 viewModel.Dni = Convert.ToInt32(dr["numeroDocumento"]);
-                viewModel.IdProfesional = Convert.ToInt32(dr["IdProfesional"]);
+                viewModel.IdProfesional = Convert.ToInt32(dr["Id"]);
                 viewModel.Matricula = Convert.ToString(dr["matricula"]);
-                viewModel.Nombre = Convert.ToString(dr["nombre"]);
+                viewModel.Nombre = Convert.ToString(dr["primerNombre"]);
                 viewModel.SetEsepecialidades(ObtenerEspecialidadesProfesional(viewModel.IdProfesional));
 
                 return viewModel;
@@ -262,7 +259,7 @@ namespace EstablecimientoPanelDeControl.Repositorio
             SqlCommand com = new SqlCommand("General.Obtener_Especialidad_Profesional", con);
             com.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(com);
-            com.Parameters.AddWithValue("@idProfesional", idProfesional);
+            com.Parameters.AddWithValue("@idProf", idProfesional);
             DataTable dt = new DataTable();
             try
             {

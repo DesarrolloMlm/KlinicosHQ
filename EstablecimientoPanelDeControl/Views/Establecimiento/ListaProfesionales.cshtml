@@ -1,28 +1,101 @@
 ﻿@model List< EstablecimientoPanelDeControl.ViewModels.ProfesionalViewModel>
 
-<table>
-    <thead>
-        <tr>
-            <th>DNI</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Matricula</th>
-            <th>Especialidades</th>
-            <th>Acceder</th>
-        </tr>
-    </thead>
+        <style>
 
-    <tbody>
-        @foreach (var profesional in Model)
-        {
-            <tr>
-                <td>@profesional.Dni </td>
-                <td>@profesional.Nombre</td>
-                <td>@profesional.Apellido</td>
-                <td>@profesional.Matricula</td>
-                <td>@profesional.GetEspecialidades()</td>
-                <td><a href="#">content</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
+            body {
+            background-image: url("../../images/background.jpg");
+            background-position:center;
+            }
+
+            #customers {
+                font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            /*Primer fila*/
+            #customers td, #customers th {    
+                    padding: 6px;
+                    margin: auto;
+                    background-color: #fc9e58;
+                    text-align: center;
+                    border-style:groove;
+            }
+
+           /*Segunda fila*/
+            #customers tr:nth-child(even) {
+                    background-color: #fc9e58;
+                    text-align: center;
+                    border-style:groove;
+            }
+                
+             /*Accion cuando seleccionas*/
+            #customers tr:hover {
+                      color: white;
+                      
+            } 
+            /*Fila Encabezado*/
+            #customers th {
+                    padding-top: 20px;
+                    padding-bottom: 15px;
+                    text-align: center;
+                    text-decoration:underline;
+                    background-color: #303030;
+                    color: white;
+            }
+
+            /*Boton*/
+            a:link, a:visited {
+            background-color: #555555;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius:50%;
+            }
+
+            .th {
+                font-size: 20px;
+                border: 2px solid white;
+            }
+
+            .td{
+                font-size: 15px;
+                text-transform: uppercase;
+            }
+
+            .td1{
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 600;
+            }
+
+        </style>
+
+        <table id="customers">
+            <thead style="background-color: lightpink">
+                <tr>
+                    <th class="th"> DNI</th>
+                    <th class="th"> Nombre</th>
+                    <th class="th"> Apellido</th>
+                    <th class="th"> Matricula</th>
+                    <th class="th"> Especialidades</th>
+                    <th class="th"> Acceder</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var profesional in Model)
+                {
+                    <tr>
+                        <td class="td1">@profesional.Dni </td>
+                        <td class="td">@profesional.Nombre</td>
+                        <td class="td">@profesional.Apellido</td>
+                        <td class="td">@profesional.Matricula</td>
+                        <td class="td">@profesional.GetEspecialidades()</td>
+                        <td><a href="#">Detalle>></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>

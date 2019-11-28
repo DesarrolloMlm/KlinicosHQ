@@ -20,7 +20,7 @@ namespace EstablecimientoPanelDeControl.ViewModels
         public void SetEsepecialidades(List<Especialidad> lista)
         {
             this.especialidades = lista;
-        }
+        }  
 
         public string GetEspecialidades()
         {
